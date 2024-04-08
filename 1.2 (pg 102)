@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+	string s1, s2;
+	int n, m, dem[4][30], i, j;
+	for (i = 0; i <= 3; i++)
+		for (j = 0; j <= 29; j++)
+			dem[i][j] = 0;
+	cin >> s1 >> s2;
+	n = s1.size();
+	m = s2.size();
+	if (n != m)
+	    {
+	        cout << "NO\n";
+	        return 0;
+	    }
+	else {
+	    bool u = 1;
+	    for (i = 0; i < n; i++)
+	        {
+	            dem[1][s1[i] - 'a']++;
+	            dem[2][s2[i] - 'a']++;
+	        }
+	    for (i = 0; i <= 25; i++)
+	        if (dem[1][i] != dem[2][i])
+	            u = 0;
+	   if (u)
+	        {
+	            cout << "YES\n";
+	            return 0;
+	        }
+	   else {
+	       cout << "NO\n";
+	       return 0;
+	   }
+	}
+}
